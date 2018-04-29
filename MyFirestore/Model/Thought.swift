@@ -17,3 +17,7 @@ struct Thought: Codable {
     let username: String
     let documentID: String?
 }
+
+enum ThoughtKeys: String {
+    case category, timestamp
+}

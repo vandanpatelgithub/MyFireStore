@@ -26,7 +26,8 @@ class AddThoughVC: UIViewController {
 
     @IBAction func didTapPost(_ sender: UIButton) {
         guard let username = usernameTextField.text else { return }
-        let thought = Thought(category: selectedCategory, numComments: 0, numLikes: 0, thoughtText: thoughtTextView.text, timestamp: Date(), username: username, documentID: "")
+        let thought = Thought(category: selectedCategory, numComments: 0, numLikes: 0, thoughtText: thoughtTextView.text,
+                              timestamp: Date(), username: username, documentID: "")
         
         do {
             let data = try JSONEncoder().encode(thought)
