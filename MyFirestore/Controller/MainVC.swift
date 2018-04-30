@@ -31,27 +31,51 @@ class MainVC: UIViewController {
             .whereField(ThoughtKeys.category.rawValue, isEqualTo: category.rawValue)
             .order(by: ThoughtKeys.timestamp.rawValue, descending: true)
             .addSnapshotListener { [weak self] (snapshot, error) in
+                if self?.selectedCategory == Category.popular.rawValue {
+                    self?.fetchPopularThoughts()
+                } else {
+                    if let error = error {
+                        debugPrint("Error fetching documents: \(error)")
+                    } else {
+                        guard let snap = snapshot, let strongSelf = self else { return }
+                        strongSelf.parseData(strongSelf, snap)
+                        DispatchQueue.main.async { strongSelf.tableView.reloadData() }
+                    }
+                }
+        }
+    }
+
+    fileprivate func fetchPopularThoughts() {
+        collectionRef
+            .order(by: ThoughtKeys.numLikes.rawValue, descending: true)
+            .getDocuments { [weak self] (snapshot, error) in
                 if let error = error {
                     debugPrint("Error fetching documents: \(error)")
                 } else {
                     guard let snap = snapshot, let strongSelf = self else { return }
-                    strongSelf.thoughts.removeAll()
-                    for document in snap.documents {
-                        do {
-                            let data    = try JSONSerialization.data(withJSONObject: document.data(), options: .prettyPrinted)
-                            let thought = try JSONDecoder().decode(Thought.self, from: data)
-                            strongSelf.thoughts.append(thought)
-                        } catch let error {
-                            debugPrint("Error Parsing Data: \(error)")
-                        }
-                    }
+                    strongSelf.parseData(strongSelf, snap)
                     DispatchQueue.main.async { strongSelf.tableView.reloadData() }
                 }
         }
     }
 
+    fileprivate func parseData(_ strongSelf: MainVC, _ snap: QuerySnapshot) {
+        strongSelf.thoughts.removeAll()
+        for document in snap.documents {
+            do {
+                let data    = try JSONSerialization.data(withJSONObject: document.data(), options: .prettyPrinted)
+                var thought = try JSONDecoder().decode(Thought.self, from: data)
+                thought.documentID = document.documentID
+                strongSelf.thoughts.append(thought)
+            } catch let error {
+                debugPrint("Error Parsing Data: \(error)")
+            }
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
-        fetchThoughts(forCategory: Category.funny)
+        selectedCategory == Category.popular.rawValue ? fetchPopularThoughts() :
+            fetchThoughts(forCategory: Category.funny)
     }
 
     @IBAction func categoryChanged(_ sender: UISegmentedControl) {
@@ -59,11 +83,11 @@ class MainVC: UIViewController {
         case 0: selectedCategory = Category.funny.rawValue
         case 1: selectedCategory = Category.serious.rawValue
         case 2: selectedCategory = Category.crazy.rawValue
-        case 4: selectedCategory = Category.popular.rawValue
+        case 3: selectedCategory = Category.popular.rawValue
         default: break
         }
         guard let category = Category(rawValue: selectedCategory) else { return }
-        fetchThoughts(forCategory: category)
+        selectedCategory == Category.popular.rawValue ? fetchPopularThoughts() : fetchThoughts(forCategory: category)
     }
     
     

@@ -15,9 +15,9 @@ struct Thought: Codable {
     let thoughtText: String
     let timestamp: Date
     let username: String
-    let documentID: String?
+    var documentID: String?
 }
 
 enum ThoughtKeys: String {
-    case category, timestamp
+    case category, timestamp, numLikes
 }
