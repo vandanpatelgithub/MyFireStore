@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class AddThoughVC: UIViewController {
+class AddThoughVC: UIViewController, Storyboard {
+
+    weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var categorySegment: UISegmentedControl!
     @IBOutlet weak var usernameTextField: UITextField!

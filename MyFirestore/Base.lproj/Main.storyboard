@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jaQ-G2-xaa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,13 +14,13 @@
         <!--RNDM-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="MyFirestore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="MainVC" customModule="MyFirestore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6va-PL-mTV">
-                                <rect key="frame" x="20" y="80" width="335" height="33"/>
+                                <rect key="frame" x="20" y="36" width="335" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Th1-pO-Pg6"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LN0-I6-ljI">
-                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="thoughtCell" rowHeight="100" id="De8-OV-4ZW" customClass="ThoughtCell" customModule="MyFirestore" customModuleProvider="target">
@@ -124,7 +124,7 @@
                     <navigationItem key="navigationItem" title="RNDM" id="frv-u9-Cxb">
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" id="OTz-hI-aYp">
                             <connections>
-                                <segue destination="G5y-dN-Yn0" kind="show" id="gYa-69-nCd"/>
+                                <action selector="addThought:" destination="BYZ-38-t0r" id="EYE-Rk-4yu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,13 +140,13 @@
         <!--Add ThoughVC-->
         <scene sceneID="5jv-Up-cSi">
             <objects>
-                <viewController id="G5y-dN-Yn0" customClass="AddThoughVC" customModule="MyFirestore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddThoughVC" id="G5y-dN-Yn0" customClass="AddThoughVC" customModule="MyFirestore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a6D-92-Wb5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3fc-Aw-ygJ">
-                                <rect key="frame" x="20" y="80" width="335" height="33"/>
+                                <rect key="frame" x="20" y="36" width="335" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="WQE-eB-Lwo"/>
                                 </constraints>
@@ -161,7 +161,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ku-dM-UOO">
-                                <rect key="frame" x="20" y="128" width="335" height="35"/>
+                                <rect key="frame" x="20" y="84" width="335" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="dHA-PE-85N"/>
                                 </constraints>
@@ -170,7 +170,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="My Random Thought..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="peu-1E-jCu">
-                                <rect key="frame" x="20" y="179" width="335" height="128"/>
+                                <rect key="frame" x="20" y="135" width="335" height="128"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.41968107876712329" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="HNa-ys-fhm"/>
@@ -185,7 +185,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYS-ds-3tl">
-                                <rect key="frame" x="147" y="323" width="80" height="35"/>
+                                <rect key="frame" x="147" y="279" width="80" height="35"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="08H-D8-P0X"/>
@@ -247,9 +247,6 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="R0I-u5-I5e"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJg-Ea-fYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

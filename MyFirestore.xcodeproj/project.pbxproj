@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		07206E8720818EC9005036B4 /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07206E8620818EC9005036B4 /* Thought.swift */; };
 		073245C3207DD02000703096 /* AddThoughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073245C2207DD02000703096 /* AddThoughVC.swift */; };
+		073A43E820995D6F00BB8AF2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073A43E720995D6F00BB8AF2 /* Storyboard.swift */; };
+		073A43EA20995E2B00BB8AF2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073A43E920995E2B00BB8AF2 /* MainCoordinator.swift */; };
+		073A43EC20995EDC00BB8AF2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073A43EB20995EDC00BB8AF2 /* Coordinator.swift */; };
 		076D8814207C5DF000996E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D8813207C5DF000996E57 /* AppDelegate.swift */; };
 		076D8816207C5DF000996E57 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D8815207C5DF000996E57 /* MainVC.swift */; };
 		076D8819207C5DF000996E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 076D8817207C5DF000996E57 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		07206E8620818EC9005036B4 /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		073245C2207DD02000703096 /* AddThoughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughVC.swift; sourceTree = "<group>"; };
+		073A43E720995D6F00BB8AF2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		073A43E920995E2B00BB8AF2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		073A43EB20995EDC00BB8AF2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		076D8810207C5DF000996E57 /* MyFirestore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirestore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		076D8813207C5DF000996E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		076D8815207C5DF000996E57 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -70,9 +76,19 @@
 		073245C6207DD04900703096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				073A43E720995D6F00BB8AF2 /* Storyboard.swift */,
 				07206E8620818EC9005036B4 /* Thought.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		073A43ED20996D0800BB8AF2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				073A43E920995E2B00BB8AF2 /* MainCoordinator.swift */,
+				073A43EB20995EDC00BB8AF2 /* Coordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		076D8807207C5DF000996E57 = {
@@ -100,6 +116,7 @@
 				073245C6207DD04900703096 /* Model */,
 				073245C5207DD04300703096 /* View */,
 				073245C4207DD03800703096 /* Controller */,
+				073A43ED20996D0800BB8AF2 /* Coordinators */,
 				076D8813207C5DF000996E57 /* AppDelegate.swift */,
 				076D8817207C5DF000996E57 /* Main.storyboard */,
 				076D881A207C5DF000996E57 /* Assets.xcassets */,
@@ -282,11 +299,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				077C0B0A20904AFA008C3482 /* ThoughtCell.swift in Sources */,
+				073A43EA20995E2B00BB8AF2 /* MainCoordinator.swift in Sources */,
 				076D8816207C5DF000996E57 /* MainVC.swift in Sources */,
 				076D8814207C5DF000996E57 /* AppDelegate.swift in Sources */,
+				073A43E820995D6F00BB8AF2 /* Storyboard.swift in Sources */,
 				07789CF12096A451007B317D /* FireStoreService.swift in Sources */,
 				073245C3207DD02000703096 /* AddThoughVC.swift in Sources */,
 				07206E8720818EC9005036B4 /* Thought.swift in Sources */,
+				073A43EC20995EDC00BB8AF2 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

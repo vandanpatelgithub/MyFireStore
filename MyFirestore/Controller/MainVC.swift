@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, Storyboard {
+
+    weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -89,8 +91,10 @@ class MainVC: UIViewController {
         guard let category = Category(rawValue: selectedCategory) else { return }
         selectedCategory == Category.popular.rawValue ? fetchPopularThoughts() : fetchThoughts(forCategory: category)
     }
-    
-    
+
+    @IBAction func addThought(_ sender: UIBarButtonItem) {
+        coordinator?.addThought()
+    }
 }
 
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
